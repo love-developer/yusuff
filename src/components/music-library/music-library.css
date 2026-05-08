@@ -1,0 +1,61 @@
+.ml-page {
+  min-height: 100vh;
+  background: #f3f3f5;
+  padding: 22px 18px;
+  color: #1f2430;
+}
+.ml-shell {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+}
+.ml-card {
+  background: #fff;
+  border: 1px solid #e5e7ec;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+}
+.ml-sidebar-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.ml-side-link {
+  height: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.ml-side-link.active {
+  background: #ff9800;
+  color: #fff;
+}
+.ml-side-link:not(.active) {
+  color: #2e3544;
+}
+.ml-tab {
+  height: 30px;
+  border: 1px solid #e5e7ec;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 12px;
+  color: #798194;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ml-tab.active {
+  background: #ff9800;
+  color: #fff;
+  border-color: #ff9800;
+}
+.ml-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
