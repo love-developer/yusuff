@@ -585,45 +585,109 @@ export const InviteMemberModal = ({ open, onClose }) => {
   if (!open) return null;
   return (
     <Backdrop>
-      <div className="w-full max-w-[520px] rounded-lg bg-white p-6 shadow-2xl">
-        <div className="mb-4 flex items-center justify-between">
-          <p className="text-[48px] font-semibold leading-none text-[#161B27]">
+      <div className="w-full max-w-[434px]  bg-[#FFFFFF] p-[24px] shadow-[0px 5px 20px 0px #00000026] flex flex-col gap-[16px];">
+        <div className="flex items-center justify-between">
+          <p className="text-[24px] font-[600] text-[#111111]">
             Invite Team Member
           </p>
           <button type="button" onClick={onClose} className="text-[#8D95A6]">
-            <IconClose className="h-7 w-7" />
+            <IconClose className="h-[24px] w-[24px]" />
           </button>
         </div>
-        <label className="text-[13px] font-medium text-[#1D2232]">
-          Email Address
-        </label>
-        <input
-          className="mt-2 mb-4 w-full rounded-lg border border-[#E5E7EB] px-3 py-3 text-[16px]"
-          placeholder="colleague@email.com"
-        />
-        <label className="text-[13px] font-medium text-[#1D2232]">Role</label>
-        <input
-          className="mt-2 mb-4 w-full rounded-lg border border-[#E5E7EB] px-3 py-3 text-[16px]"
-          placeholder="Co-Author"
-        />
-        <label className="text-[13px] font-medium text-[#1D2232]">
-          Book Access
-        </label>
-        <input
-          className="mt-2 mb-5 w-full rounded-lg border border-[#E5E7EB] px-3 py-3 text-[16px]"
-          placeholder="All Books"
-        />
-        <div className="grid grid-cols-2 gap-3">
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-lg border border-[#94A3B8] py-3 text-[16px] text-[#475569]"
-          >
-            Cancel
-          </button>
-          <OrangeButton onClick={onClose} className="py-3 text-[16px]">
-            Next Step
-          </OrangeButton>
+
+        <div className="flex flex-col gap-[24px] my-[24px]">
+          <div className="flex flex-col gap-[12px]">
+            <label className="text-[16px] font-[500] text-[#111111]">
+              Email Address
+            </label>
+            <input
+              className="w-full h-[52px]  rounded-[8px] p-[12px] border border-[#E5E7EC] bg-[#FFFFFF]  text-[16px] font-[400] text-[#7C8091] focus:outline-none"
+              placeholder="colleague@email.com"
+            />
+          </div>
+          <div className="flex flex-col gap-[12px]">
+            <label className="text-[16px] font-[500] text-[#111111]">
+              Role
+            </label>
+
+            <div className="relative">
+              <select className="w-full h-[52px] rounded-[8px] p-[12px] border border-[#E5E7EC] bg-[#FFFFFF] text-[16px] font-[400] text-[#7C8091] focus:outline-none appearance-none">
+                <option>Co-Author</option>
+                <option>Editor</option>
+                <option>Viewer</option>
+              </select>
+
+              {/* Dropdown SVG */}
+              <div className="absolute right-[14px] top-1/2 -translate-y-1/2 pointer-events-none">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#7C8091"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-[12px]">
+            <label className="text-[16px] font-[500] text-[#111111]">
+              Book Access
+            </label>
+
+            <div className="relative">
+              <select className="w-full h-[52px] rounded-[8px] p-[12px] border border-[#E5E7EC] bg-[#FFFFFF] text-[16px] font-[400] text-[#7C8091] focus:outline-none appearance-none">
+                <option>All Books</option>
+                <option>Selected Books</option>
+                <option>Limited Access</option>
+              </select>
+
+              {/* Dropdown SVG */}
+              <div className="absolute right-[14px] top-1/2 -translate-y-1/2 pointer-events-none">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#7C8091"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex gap-[20px]">
+            <button
+              type="button"
+              onClick={onClose}
+              className="h-[52px] w-[187px] rounded-[8px] py-[14px] px-[24px] border border-[#7C8091] text-[16px] font-[400] text-[#4A5568] flex items-center justify-center"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={onClose}
+              className="h-[52px] w-[187px] bg-[#FF9600] rounded-[8px] py-[14px] px-[24px] text-[16px] font-[400] text-[#FFFFFF] flex items-center justify-center"
+            >
+              Next Step
+            </button>
+          </div>
         </div>
       </div>
     </Backdrop>
