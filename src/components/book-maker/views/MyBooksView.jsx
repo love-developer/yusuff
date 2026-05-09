@@ -3,52 +3,53 @@ import { dashboardStats, sampleBooks } from '../data'
 import { CardPanel, OrangeButton, PageHeader, TopStatCard } from '../Shared'
 import { IconBooks, IconChart, IconPalette, IconPen } from '../icons'
 
-const icons = [<IconBooks key='1' className='h-4 w-4' />, <IconPen key='2' className='h-4 w-4' />, <IconPalette key='3' className='h-4 w-4' />, <IconChart key='4' className='h-4 w-4' />]
+const icons = [<IconBooks key='1' className='h-[24px] w-[24px]' />, <IconPen key='2' className='h-[24px] w-[24px]' />, <IconPalette key='3' className='h-[24px] w-[24px]' />, <IconChart key='4' className='h-[24px] w-[24px]' />]
 
 const MyBooksView = ({ onOpenCreateBook }) => (
-  <div className='space-y-4'>
+  <div className='flex flex-col gap-[32px]'>
     <PageHeader
       title='My Book Maker'
       subtitle='Manage all your books in one place'
-      action={<OrangeButton onClick={onOpenCreateBook}>+ Create Book</OrangeButton>}
+      action={<button onClick={onOpenCreateBook} className="h-[52px] w-[157px] rounded-[8px] py-[14px] bg-[#FF9600] px-[24px] text-[16px] font-[500] text-[#ffffff]">+ Create Book</button>}
+      
     />
 
-    <div className='grid grid-cols-4 gap-3'>
+    <div className='grid grid-cols-4 gap-[17px]'>
       {dashboardStats.map((stat, index) => (
         <TopStatCard key={stat.label} icon={icons[index]} value={stat.value} label={stat.label} note={stat.note} />
       ))}
     </div>
 
     <CardPanel title='My Books'>
-      <div className='grid grid-cols-2 gap-3'>
+      <div className='grid grid-cols-4 gap-[13px]'>
         {sampleBooks.map((book) => (
-          <article key={book.id} className='rounded-2xl border border-[#DCE1EA] bg-white p-3'>
+          <article key={book.id} className='w-[234px] h-[337px] rounded-[10px] border border-[#E5E7EC] bg-[#FFFFFF] p-[12px] flex flex-col gap-[12px]'>
             <div className='relative'>
-              <img src={book.image} alt={book.title} className='h-[225px] w-full rounded-lg object-cover' />
-              <span className='absolute right-2 top-2 rounded-full bg-white px-2 py-0.5 text-[11px] text-[#374151]'>
+              <img src={book.image} alt={book.title} className='w-[210px] h-[169px] rounded-[5px]' />
+              <span className='flex items-center justify-center h-[14px] w-fit px-[8px] absolute right-2 top-2 rounded-full bg-[#F9F9F9] text-[8px] font-[400] text-[#111111]'>
                 {book.status}
               </span>
             </div>
-            <div className='mt-3'>
-              <div className='flex items-start justify-between gap-2'>
-                <p className='line-clamp-1 text-[14px] font-semibold leading-[1.15] text-[#1D2232]'>{book.title}</p>
-                <button type='button' className='text-[20px] leading-none text-[#3B3B3B]'>⋮</button>
+            <div className='flex flex-col gap-[8px]'>
+              <div className='flex items-start justify-between'>
+                <p className='line-clamp-1 text-[12px] font-[600] leading-[16px] text-[#111111]'>{book.title}</p>
+                <button type='button' className='text-[18px] leading-none text-[#111111]'>⋮</button>
               </div>
-              <div className='mt-2 flex items-center justify-between text-[12px] text-[#2D3343]'>
+              <div className='flex items-center justify-between text-[10px] font-[400] text-[#111111]'>
                 <span>Progress</span>
                 <span>{book.progress}%</span>
               </div>
-              <div className='mt-2 h-[8px] rounded-full bg-[#CFF5D8]'>
-                <div className='h-[8px] rounded-full bg-[#FF9800]' style={{ width: `${book.progress}%` }} />
+              <div className='h-[5px] rounded-[8px] bg-[#CBFECB]'>
+                <div className='h-[5px] rounded-[8px] bg-[#FF9600]' style={{ width: `${book.progress}%` }} />
               </div>
-              <div className='mt-3 flex items-center gap-6 text-[12px] text-[#7F8798]'>
-                <span className='flex items-center gap-1.5'>📄 Chapters {book.chapters}</span>
-                <span className='flex items-center gap-1.5'>👁 {book.reads}</span>
-                <span className='flex items-center gap-1.5'>🕒 {book.updated}</span>
+              <div className='flex items-center justify-between text-[10px] font-[400] text-[#7C8091]'>
+                <span className='flex items-center gap-[4px]'>📄 Chapters {book.chapters}</span>
+                <span className='flex items-center gap-[4px]'>👁 {book.reads}</span>
+                <span className='flex items-center gap-[4px]'>🕒 {book.updated}</span>
               </div>
-              <div className='mt-3 h-px bg-[#E8EBF2]' />
+              <div className='border border-[#E5E7EC]' />
             </div>
-            <button type='button' className='mt-3 w-full rounded-lg bg-[#FF9800] py-2.5 text-[18px] font-medium text-white'>
+            <button type='button' className='flex items-center justify-center h-[30px] w-full rounded-[4px] bg-[#FF9600] py-[10px] px-[12px] text-[16px] font-[500] text-[#FFFFFF]'>
               {book.action}
             </button>
           </article>

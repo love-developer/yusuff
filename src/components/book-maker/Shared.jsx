@@ -11,7 +11,7 @@ const navIcon = {
 }
 
 export const AppShell = ({ children }) => (
-  <div className='min-h-screen px-4 py-14 md:px-6'>
+  <div className='min-h-screen px-4 py-6'>
     <div className='mx-auto grid w-full max-w-[1304px] grid-cols-[260px_minmax(0,1028px)] gap-4'>{children}</div>
   </div>
 )
@@ -45,27 +45,32 @@ export const Sidebar = ({ items, active, onChange }) => (
 export const PageHeader = ({ title, subtitle, action }) => (
   <div className='flex items-start justify-between gap-4'>
     <div>
-      <h1 className='text-[38px] font-semibold leading-[1.1] text-[#131722]'>{title}</h1>
-      <p className='mt-1 text-[12px] text-[#8991A4]'>{subtitle}</p>
+      <h1 className='text-[28px] font-[700] text-[#111111]'>{title}</h1>
+      <p className='mt-1 text-[14px] font-[400] text-[#7C8091]'>{subtitle}</p>
     </div>
     {action}
   </div>
 )
 
 export const TopStatCard = ({ icon, value, label, note }) => (
-  <div className='rounded-lg border border-[#EAEAEA] bg-white p-3'>
-    <div className='mb-2 flex items-center justify-between'>
-      <div className='rounded-md bg-[#EEF4FF] p-2 text-[#5A8CFF]'>{icon}</div>
-      <p className='text-[24px] font-semibold text-[#1B2030]'>{value}</p>
+  <div className='h-[156px] w-[244px] rounded-[12px] border border-[#E5E7EC] bg-[#FFFFFF] p-[24px] flex flex-col gap-[16px] shadow: 0px 1px 10px 0px #00000008;
+'>
+    <div className='flex items-center justify-between'>
+      <div className='w-[48px] h-[48px] rounded-[8px] bg-[#DBEAFE] flex items-center justify-center'>{icon}</div>
+      <p className='text-[20px] font-[700] text-[#111111]'>{value}</p>
     </div>
-    <p className='text-[13px] font-medium text-[#1D2232]'>{label}</p>
-    <p className='text-[11px] text-[#8E95A5]'>{note}</p>
+    <div>
+    <p className='text-[16px] font-[500] text-[#111111]'>{label}</p>
+    <p className='text-[14px] font-[400] text-[#7C8091]'>{note}</p>
+      </div>
+
   </div>
 )
 
 export const CardPanel = ({ title, children }) => (
-  <section className='rounded-lg border border-[#EAEAEA] bg-white p-3'>
-    {title && <h3 className='mb-3 text-[16px] font-semibold text-[#1D2232]'>{title}</h3>}
+  <section className='px-[20px] py-[20px] min-h-[104px] min-w-[354px] rounded-[12px] border border-[#E5E7EC] bg-[#FFFFFF] flex flex-col justify-center gap-[12px] shadow: 0px 3px 30px 0px #0000000D;
+'>
+    {title && <h3 className='text-[13px] font-[700] text-[#111111]'>{title}</h3>}
     {children}
   </section>
 )
@@ -73,7 +78,7 @@ export const CardPanel = ({ title, children }) => (
 export const OrangeButton = ({ children, className = '', ...props }) => (
   <button
     type='button'
-    className={`rounded-md bg-[#FF9800] px-4 py-2 text-[13px] font-medium text-white hover:bg-[#f28f00] ${className}`}
+    className={`h-[52px] w-[291px] rounded-[8px] py-[14px] bg-[#FF9600] px-[24px] text-[16px] font-[500] text-[#ffffff] ${className}`}
     {...props}
   >
     {children}
@@ -83,7 +88,7 @@ export const OrangeButton = ({ children, className = '', ...props }) => (
 export const OutlineButton = ({ children, className = '', ...props }) => (
   <button
     type='button'
-    className={`rounded-md border border-[#FFBD67] bg-white px-4 py-2 text-[12px] font-medium text-[#F08A00] ${className}`}
+    className={`rounded-[4px] border border-[#FF9600] bg-white px-[16px] cursor-pointer h-[40px] text-[16px] font-[500] text-[#FF9600] ${className}`}
     {...props}
   >
     {children}

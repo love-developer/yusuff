@@ -46,7 +46,7 @@ export const IconChart = ({ className = base }) => (
   </svg>
 )
 
-export const IconClose = ({ className = 'h-5 w-5' }) => (
+export const IconClose = ({ className = 'h-[24px] w-[24px]' }) => (
   <svg viewBox='0 0 24 24' className={className} fill='none' stroke='currentColor' strokeWidth='2'>
     <path d='M18 6 6 18M6 6l12 12' />
   </svg>
