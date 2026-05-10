@@ -6,7 +6,31 @@ const DesignToolsView = ({ tab, onTabChange }) => (
     <PageHeader
       title="Design Tools"
       subtitle="Create beautiful book layouts and covers"
-      action={<OrangeButton>Save Design</OrangeButton>}
+      action={
+        <button className="flex h-[48px] w-[160px] cursor-pointer items-center justify-center gap-[8px] rounded-[8px] bg-[#FF9600] text-[15px] font-[600] text-[#FFFFFF]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="h-5 w-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17 21V13H7v8"
+            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 3v5h8" />
+          </svg>
+          Save Design
+        </button>
+      }
     />
 
     <div
@@ -273,34 +297,38 @@ const DesignToolsView = ({ tab, onTabChange }) => (
       )}
 
       {tab === "cover" && (
-        <div className="grid grid-cols-2 gap-3">
-          <div className="space-y-4 text-[12px]">
+        <div className="flex p-[24px] justify-between gap-4">
+          <div className="flex flex-col gap-[21px] w-[567px] ">
             {/* Cover Information Section */}
-            <div className="space-y-3">
-              <p className="font-semibold text-[#1D2232]">Cover Information</p>
-              <div className="space-y-3">
-                <div className="space-y-1">
-                  <label className="text-[12px] text-[#1D2232]">
+            <div className="flex flex-col gap-[24px]">
+              <p className="font-[600] text-[14px] text-[#111111]">
+                Cover Information
+              </p>
+              <div className="flex flex-col gap-[12px]">
+                <div className="flex flex-col gap-[8px]">
+                  <label className="text-[13px]  font-[600] text-[#111111]">
                     Book Title
                   </label>
                   <input
-                    className="w-full rounded-md border border-[#E5E7EB] px-3 py-2"
+                    className="h-[47px] w-full rounded-[8px] bg-[#FFFFFF] border border-[#E5E7EC] px-3 text-[13px] font-[400] text-[#111111] focus:outline-none"
                     placeholder="Your Book Title"
                   />
                 </div>
-                <div className="space-y-1">
-                  <label className="text-[12px] text-[#1D2232]">Subtitle</label>
+                <div className="flex flex-col gap-[8px]">
+                  <label className="text-[13px]  font-[600] text-[#111111]">
+                    Subtitle
+                  </label>
                   <input
-                    className="w-full rounded-md border border-[#E5E7EB] px-3 py-2"
+                    className="h-[47px] w-full rounded-[8px] bg-[#FFFFFF] border border-[#E5E7EC] px-3 text-[13px] font-[400] text-[#111111] focus:outline-none"
                     placeholder="Subtitle Goes Here"
                   />
                 </div>
-                <div className="space-y-1">
-                  <label className="text-[12px] text-[#1D2232]">
+                <div className="flex flex-col gap-[8px]">
+                  <label className="text-[13px]  font-[600] text-[#111111]">
                     Author Name
                   </label>
                   <input
-                    className="w-full rounded-md border border-[#E5E7EB] px-3 py-2"
+                    className="h-[47px] w-full rounded-[8px] bg-[#FFFFFF] border border-[#E5E7EC] px-3 text-[13px] font-[400] text-[#111111] focus:outline-none"
                     placeholder="Author Name"
                   />
                 </div>
@@ -308,59 +336,126 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Cover Style Section */}
-            <div className="space-y-2">
-              <p className="font-semibold text-[#1D2232]">Cover Style</p>
-              <div className="grid grid-cols-3 gap-2">
-                <div className="rounded-md border border-[#EAEAEA] p-2">
+            <div className="flex flex-col gap-[8px]">
+              <p className="font-[500] text-[13px] text-[#111111]">
+                Cover Style
+              </p>
+              <div className="flex gap-[12px]">
+                <div
+                  className="h-[201px] w-[209px] overflow-hidden rounded-[10px] border border-[#E5E7EC] bg-[#FFFFFF] shadow-[0px 1px 10px 0px #00000008];
+"
+                >
                   <img
                     src="https://picsum.photos/seed/modern-minimalist/300/160"
                     alt="Modern Minimalist"
-                    className="h-24 w-full rounded object-cover"
+                    className="w-[209px] h-[170px] object-cover"
                   />
-                  <p className="mt-1 text-[11px] font-semibold text-[#1D2232]">
-                    Modern Minimalist
-                  </p>
+                  <div className="px-3 py-1">
+                    <p className="text-[12px] font-[600] text-[#111111]">
+                      Modern Minimalist
+                    </p>
+                  </div>
                 </div>
-                <div className="rounded-md border border-[#EAEAEA] p-2">
+                <div
+                  className="h-[201px] w-[209px] overflow-hidden rounded-[10px] border border-[#E5E7EC] bg-[#FFFFFF] shadow-[0px 1px 10px 0px #00000008];
+"
+                >
                   <img
                     src="https://picsum.photos/seed/classic-elegant/300/160"
                     alt="Classic Elegant"
-                    className="h-24 w-full rounded object-cover"
+                    className="w-[209px] h-[170px] object-cover"
                   />
-                  <p className="mt-1 text-[11px] font-semibold text-[#1D2232]">
-                    Classic Elegant
-                  </p>
+                  <div className="px-3 py-1">
+                    <p className="text-[12px] font-[600] text-[#111111]">
+                      Classic Elegant
+                    </p>
+                  </div>
                 </div>
-                <div className="rounded-md border border-[#EAEAEA] p-2">
+                <div
+                  className="h-[201px] w-[209px] overflow-hidden rounded-[10px] border border-[#E5E7EC] bg-[#FFFFFF] shadow-[0px 1px 10px 0px #00000008];
+"
+                >
                   <img
                     src="https://picsum.photos/seed/artistic-abstract/300/160"
                     alt="Artistic Abstract"
-                    className="h-24 w-full rounded object-cover"
+                    className="w-[209px] h-[170px] object-cover"
                   />
-                  <p className="mt-1 text-[11px] font-semibold text-[#1D2232]">
-                    Artistic Abstract
-                  </p>
+                  <div className="px-3 py-1">
+                    <p className="text-[12px] font-[600] text-[#111111]">
+                      Artistic Abstract
+                    </p>
+                  </div>
                 </div>
               </div>
-              <OrangeButton className="w-full">
-                Upload Custom Image
-              </OrangeButton>
             </div>
+            <button className="flex items-center justify-center cursor-pointer  h-[52px] items-center gap-2 rounded-[8px] bg-[#FF9600] px-[24px] text-[15px] font-[500] text-[#ffffff]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+                />
+              </svg>
+              Upload Custom Image
+            </button>
           </div>
 
           {/* Preview Section */}
-          <div className="rounded-md border border-[#E5E7EB] bg-[#F9FAFB] p-3">
-            <img
-              src="https://picsum.photos/seed/coverpreview/350/500"
-              alt="preview"
-              className="mx-auto h-[390px] w-[250px] rounded object-cover"
-            />
-            <div className="mt-4 flex gap-2">
-              <button className="flex-1 bg-[#FF9800] text-white px-3 py-2 rounded text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
-                Save Cover
+          <div className="w-[609px] flex flex-col justify-between">
+            <div className=" flex items-center justify-center h-[550px] rounded-[8px] border-[2px] border-[#E5E7EC] bg-[#F9F9F9] ">
+              <img
+                src="https://picsum.photos/seed/coverpreview/350/500"
+                alt="preview"
+                className="mx-auto h-[450px] w-[300px] rounded object-cover"
+              />
+            </div>
+            <div className="flex gap-[12px]">
+              <button className="cursor-pointer flex h-[52px] flex-1 items-center justify-center gap-[8px] rounded-[8px] border-[2px] border-[#FF9600] text-[16px] font-[500] text-[#FF9600]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+                  />
+                </svg>
+                Download
               </button>
-              <button className="flex-1 bg-white text-[#1D2232] border border-[#E5E7EB] px-3 py-2 rounded text-[12px] font-medium hover:bg-[#F9FAFB] transition-colors">
-                Reset
+
+              <button className="cursor-pointer flex h-[52px] flex-1 items-center justify-center gap-[8px] rounded-[8px] border-[2px] border-[#FF9600] bg-[#FF9600] text-[16px] font-[500] text-[#FFFFFF]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                Full Preview
               </button>
             </div>
           </div>
@@ -368,18 +463,18 @@ const DesignToolsView = ({ tab, onTabChange }) => (
       )}
 
       {tab === "typography" && (
-        <div className="space-y-4">
+        <div className="flex flex-col p-[24px] justify-between gap-[24px]">
           {/* Font Pairing Suggestions Alert */}
-          <div className="rounded-md border border-[#FFBD67] bg-[#FFF8EE] p-4">
+          <div className="h-[105px] rounded-[8px] border border-[#FF9600] bg-[#FF96000D] px-4 flex items-center">
             <div className="flex items-start gap-2">
-              <div className="mt-0.5 h-4 w-4 rounded-full bg-[#FF9800] flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-[10px] font-bold">i</span>
+              <div className="h-[20px] w-[20px] rounded-full border-[2px] border-[#FF9600] flex items-center justify-center ">
+                <span className="text-[#FF9600] text-[10px] font-bold">i</span>
               </div>
               <div>
-                <h3 className="text-[14px] font-semibold text-[#C77500] mb-1">
+                <h3 className="text-[16px] font-[600] text-[#FF9600] mb-1">
                   Font Pairing Suggestions
                 </h3>
-                <p className="text-[12px] text-[#C77500] leading-relaxed">
+                <p className="text-[12px] text-[#FF9600] font-[400]">
                   Pair serif fonts for body text with sans-serif fonts for
                   headings, or vice versa. This creates visual hierarchy and
                   improves readability.
@@ -389,32 +484,32 @@ const DesignToolsView = ({ tab, onTabChange }) => (
           </div>
 
           {/* Font Selection Cards Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-[24px]">
             {/* Merriweather Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Merriweather
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Merriweather, serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
                 <div className="flex items-center gap-1">
-                  <span className="text-[11px] text-[#6B7280]">
+                  <span className="text-[11px] font-[400] text-[#7C8091]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] font-[400]  text-[#111111]">
                     Inter
                   </span>
                 </div>
@@ -422,30 +517,30 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Playfair Display Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Playfair Display
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
                 <div className="flex items-center gap-1">
-                  <span className="text-[11px] text-[#6B7280]">
+                  <span className="text-[11px] font-[400] text-[#7C8091]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] font-[400]  text-[#111111]">
                     Roboto
                   </span>
                 </div>
@@ -453,22 +548,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Lora Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Lora
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Lora, serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -476,7 +571,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111]">
                     Open Sans
                   </span>
                 </div>
@@ -484,22 +579,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Crimson Text Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Crimson Text
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Crimson Text, serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -507,7 +602,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111]">
                     Montserrat
                   </span>
                 </div>
@@ -515,22 +610,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Open Sans Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Open Sans
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Sans-Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Sans-Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Open Sans, sans-serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -538,7 +633,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111] ">
                     Lora
                   </span>
                 </div>
@@ -546,22 +641,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Roboto Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Roboto
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Sans-Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Sans-Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Roboto, sans-serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -569,7 +664,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111]">
                     Playfair Display
                   </span>
                 </div>
@@ -577,22 +672,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* Montserrat Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   Montserrat
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Sans-Serif</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Sans-Serif</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111]"
                   style={{ fontFamily: "Montserrat, sans-serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -600,7 +695,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111]">
                     Crimson Text
                   </span>
                 </div>
@@ -608,22 +703,22 @@ const DesignToolsView = ({ tab, onTabChange }) => (
             </div>
 
             {/* OpenDyslexic Card */}
-            <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm p-4 relative">
-              <button className="absolute top-4 right-4 bg-[#FF9800] text-white px-3 py-1.5 rounded-md text-[12px] font-medium hover:bg-[#F57C00] transition-colors">
+            <div className="h-[211px] bg-[#FFFFFF] rounded-[8px] border border-[#E5E7EC] p-[20px] relative">
+              <button className="w-[70px] h-[36px] absolute top-4 right-4 bg-[#FF9800] text-white rounded-[8px] text-[12px] font-[600] text-[#FFFFFF] ">
                 Select
               </button>
               <div className="pr-20">
-                <h4 className="text-[18px] font-bold text-[#1D2232] mb-1">
+                <h4 className="text-[15px] font-[600] text-[#111111] mb-1">
                   OpenDyslexic
                 </h4>
-                <p className="text-[12px] text-[#6B7280] mb-3">Accessibility</p>
+                <p className="text-[13px] font-[400] text-[#7C8091] mb-3">Accessibility</p>
                 <p
-                  className="text-[24px] text-[#1D2232] mb-2 leading-tight"
+                  className="text-[24px] font-[400] text-[#111111] mb-2 leading-tight"
                   style={{ fontFamily: "OpenDyslexic, sans-serif" }}
                 >
                   The Quick Brown Fox
                 </p>
-                <p className="text-[12px] text-[#6B7280] leading-relaxed mb-3">
+                <p className="text-[14px] font-[400] text-[#4B5563]  mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   do eiusmod tempor incididunt ut labore.
                 </p>
@@ -631,7 +726,7 @@ const DesignToolsView = ({ tab, onTabChange }) => (
                   <span className="text-[11px] text-[#6B7280]">
                     Pairs well with:
                   </span>
-                  <span className="text-[11px] text-[#FF9800] font-medium cursor-pointer hover:underline">
+                  <span className="text-[11px] text-[#111111]">
                     Inter
                   </span>
                 </div>
@@ -642,110 +737,110 @@ const DesignToolsView = ({ tab, onTabChange }) => (
       )}
 
       {tab === "templates" && (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="p-[24px] gap-[13px] grid grid-cols-4">
           {/* Classic Novel */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm overflow-hidden">
-            <div className="aspect-[2/3] bg-gray-100 p-4 flex items-center justify-center">
+          <div className="h-[324px] bg-[#FFFFFF] rounded-[10px] border border-[#E5E7EC]  flex flex-col gap-[12px] p-[12px] ">
+            <div className=" h-[198px] rounded-[5px] overflow-hidden flex items-center justify-center">
               <img
                 src="https://picsum.photos/seed/classic-novel/150/180"
                 alt="Classic Novel"
-                className="w-full h-full object-cover rounded"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-[14px] font-semibold text-[#1D2232]">
+            <div className="flex  flex-col gap-[10px]">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[12px] font-[600] text-[#111111]">
                   Classic Novel
                 </h3>
-                <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-[10px] font-medium rounded">
+                <span className="h-[24px] w-[64px] rounded-full inline-block px-[16px] py-[4px] bg-[#FF96001A] text-[#E58700] text-[10px] font-[400]">
                   Fiction
                 </span>
               </div>
-              <p className="text-[11px] text-[#6B7280] mb-3 leading-relaxed">
+              <p className="text-[10px] text-[#7C8091] font-[400]">
                 Traditional layout for fiction novels
               </p>
-              <button className="w-full bg-[#FF9800] text-white px-3 py-1.5 rounded text-[11px] font-medium hover:bg-[#F57C00] transition-colors">
+              <button className="cursor-pointer h-[30px] w-full bg-[#FF9600] text-white px-[12px] rounded-[4px] text-[16px] font-[500] text-[#FFFFFF] ">
                 Use Template
               </button>
             </div>
           </div>
 
           {/* Modern Textbook */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm overflow-hidden">
-            <div className="aspect-[2/3] bg-blue-50 p-4 flex items-center justify-center">
+          <div className="h-[324px] bg-[#FFFFFF] rounded-[10px] border border-[#E5E7EC]  flex flex-col gap-[12px] p-[12px] ">
+            <div className=" h-[198px] rounded-[5px] overflow-hidden flex items-center justify-center">
               <img
                 src="https://picsum.photos/seed/modern-textbook/150/180"
                 alt="Modern Textbook"
-                className="w-full h-full object-cover rounded"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-[14px] font-semibold text-[#1D2232]">
+            <div className="flex  flex-col gap-[10px]">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[12px] font-[600] text-[#111111]">
                   Modern Textbook
                 </h3>
-                <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-[10px] font-medium rounded">
+                <span className="h-[24px] w-[80px] rounded-full inline-block px-[16px] py-[4px] bg-[#FF96001A] text-[#E58700] text-[10px] font-[400]">
                   Education
                 </span>
               </div>
-              <p className="text-[11px] text-[#6B7280] mb-3 leading-relaxed">
+              <p className="text-[10px] text-[#7C8091] font-[400]">
                 Educational content with clear structure
               </p>
-              <button className="w-full bg-[#FF9800] text-white px-3 py-1.5 rounded text-[11px] font-medium hover:bg-[#F57C00] transition-colors">
+              <button className="cursor-pointer h-[30px] w-full bg-[#FF9600] text-white px-[12px] rounded-[4px] text-[16px] font-[500] text-[#FFFFFF] ">
                 Use Template
               </button>
             </div>
           </div>
 
           {/* Business Book */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm overflow-hidden">
-            <div className="aspect-[2/3] bg-green-50 p-4 flex items-center justify-center">
+          <div className="h-[324px] bg-[#FFFFFF] rounded-[10px] border border-[#E5E7EC]  flex flex-col gap-[12px] p-[12px] ">
+            <div className=" h-[198px] rounded-[5px] overflow-hidden flex items-center justify-center">
               <img
                 src="https://picsum.photos/seed/business-book/150/180"
                 alt="Business Book"
                 className="w-full h-full object-cover rounded"
               />
             </div>
-            <div className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-[14px] font-semibold text-[#1D2232]">
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[12px] font-[600] text-[#111111]">
                   Business Book
                 </h3>
-                <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-[10px] font-medium rounded">
+                <span className="h-[24px] w-[88px] rounded-full inline-block px-[16px] py-[4px] bg-[#FF96001A] text-[#E58700] text-[10px] font-[400]">
                   Non-Fiction
                 </span>
               </div>
-              <p className="text-[11px] text-[#6B7280] mb-3 leading-relaxed">
+              <p className="text-[10px] text-[#7C8091] font-[400]">
                 Professional layout for business content
               </p>
-              <button className="w-full bg-[#FF9800] text-white px-3 py-1.5 rounded text-[11px] font-medium hover:bg-[#F57C00] transition-colors">
+              <button className="cursor-pointer h-[30px] w-full bg-[#FF9600] text-white px-[12px] rounded-[4px] text-[16px] font-[500] text-[#FFFFFF]">
                 Use Template
               </button>
             </div>
           </div>
 
           {/* Children's Book */}
-          <div className="bg-white rounded-lg border border-[#E5E7EB] shadow-sm overflow-hidden">
-            <div className="aspect-[2/3] bg-pink-50 p-4 flex items-center justify-center">
+          <div className="h-[324px] bg-[#FFFFFF] rounded-[10px] border border-[#E5E7EC]  flex flex-col gap-[12px] p-[12px]">
+            <div className=" h-[198px] rounded-[5px] overflow-hidden flex items-center justify-center">
               <img
                 src="https://picsum.photos/seed/children-book/150/180"
                 alt="Children Book"
                 className="w-full h-full object-cover rounded"
               />
             </div>
-            <div className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-[14px] font-semibold text-[#1D2232]">
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[12px] font-[600] text-[#111111]">
                   Children's Book
                 </h3>
-                <span className="inline-block px-2 py-1 bg-pink-100 text-pink-700 text-[10px] font-medium rounded">
+                <span className="h-[24px] w-[72px] rounded-full inline-block px-[16px] py-[4px] bg-[#FF96001A] text-[#E58700] text-[10px] font-[400]">
                   Children
                 </span>
               </div>
-              <p className="text-[11px] text-[#6B7280] mb-3 leading-relaxed">
+              <p className="text-[10px] text-[#7C8091] font-[400] leading-relaxed">
                 Colorful layout for young readers
               </p>
-              <button className="w-full bg-[#FF9800] text-white px-3 py-1.5 rounded text-[11px] font-medium hover:bg-[#F57C00] transition-colors">
+              <button className="cursor-pointer h-[30px] w-full bg-[#FF9600] text-white px-[12px] rounded-[4px] text-[16px] font-[500] text-[#FFFFFF]">
                 Use Template
               </button>
             </div>
