@@ -3,7 +3,7 @@ import { CardPanel, OrangeButton, OutlineButton, PageHeader, TopStatCard } from 
 import { IconBooks, IconChart, IconPalette, IconPublish } from '../icons'
 
 const AnalyticsView = () => (
-  <div className='space-y-4'>
+  <div className='flex flex-col gap-[32px]'>
     <PageHeader
       title='Analytics'
       subtitle='Track your book performance and earnings'

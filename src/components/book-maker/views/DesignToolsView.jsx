@@ -2,7 +2,7 @@ import React from "react";
 import { CardPanel, OrangeButton, PageHeader } from "../Shared";
 
 const DesignToolsView = ({ tab, onTabChange }) => (
-  <div className="space-y-4">
+  <div className="flex flex-col gap-[24px]">
     <PageHeader
       title="Design Tools"
       subtitle="Create beautiful book layouts and covers"

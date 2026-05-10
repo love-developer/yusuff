@@ -69,7 +69,7 @@ const invitations = [
 ];
 
 const CollaborationView = ({ tab, onTabChange, onOpenInvite }) => (
-  <div className="space-y-4">
+  <div className="flex flex-col gap-[32px]">
     <PageHeader
       title="Collaboration"
       subtitle="Manage co-authors, editors, and team members"
