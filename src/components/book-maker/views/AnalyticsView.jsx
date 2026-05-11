@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useRef, useEffect } from "react";
+import Chart from "chart.js/auto";
 import {
   CardPanel,
   OrangeButton,
@@ -7,20 +9,60 @@ import {
   TopStatCard,
 } from "../Shared";
 import { IconBooks, IconChart, IconPalette, IconPublish } from "../icons";
+import RevenueOverview from "../../ui/RevenueOverview";
+import ReaderEngagement from "../../ui/ReaderEngagement";
 
 const AnalyticsView = () => (
-  <div className="flex flex-col gap-[32px]">
+  <div className="flex flex-col gap-[24px]">
     <PageHeader
       title="Analytics"
       subtitle="Track your book performance and earnings"
       action={
-        <div className="flex gap-2">
-          <OutlineButton>Last 30 Days</OutlineButton>
-          <OrangeButton>Export Report</OrangeButton>
+        <div className="flex gap-[12px]">
+          <button className="flex items-center justify-center gap-[6px] rounded-[8px] border border-[#FF9600] bg-white cursor-pointer h-[40px] w-[131px] text-[13px] font-[400] text-[#FF9600]">
+            {/* Calendar SVG */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Last 30 Days
+          </button>
+
+          <button className="flex items-center justify-center gap-[6px] rounded-[8px] bg-[#FF9600] cursor-pointer h-[40px] w-[174px] text-[13px] font-[400] text-[#FFFFFF]">
+            {/* Export SVG */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Export Report
+          </button>
         </div>
       }
     />
-    <div className="grid grid-cols-4 gap-3">
+    <div className="grid grid-cols-4 gap-[20px]">
       <div className="h-[170px] w-[244px] rounded-[12px] border border-[#E5E7EC] bg-[#FFFFFF] px-[20px] justify-center flex flex-col shadow-[0px_1px_10px_0px_#00000008]  gap-[16px]">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
@@ -305,63 +347,64 @@ const AnalyticsView = () => (
         </div>
       </div>
     </div>
-    <div className="grid grid-cols-2 gap-3">
-      <CardPanel title="Revenue Overview">
-        <div className="h-[190px] rounded bg-[#F9FAFB]" />
-      </CardPanel>
-      <CardPanel title="Reader Engagement">
-        {[
-          ["Views", 24567, "bg-[#2563EB]", 90],
-          ["Downloads", 3842, "bg-[#16A34A]", 76],
-          ["Completed Reads", 2156, "bg-[#9333EA]", 58],
-          ["Reviews", 847, "bg-[#D97706]", 49],
-          ["Shares", 1234, "bg-[#64748B]", 67],
-        ].map(([label, value, cls, width]) => (
-          <div key={label} className="mb-2">
-            <div className="mb-1 flex justify-between text-[11px] text-[#4B5563]">
-              <span>{label}</span>
-              <span>{value}</span>
-            </div>
-            <div className="h-2 rounded-full bg-[#E7EAF0]">
-              <div
-                className={`h-2 rounded-full ${cls}`}
-                style={{ width: `${width}%` }}
-              />
-            </div>
-          </div>
-        ))}
-      </CardPanel>
-    </div>
-    <CardPanel title="Book Performance">
-      <div className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr] border-b border-[#ECECEC] pb-2 text-[11px] font-medium text-[#8E95A5]">
-        <span>BOOK</span>
-        <span>VIEWS</span>
-        <span>DOWNLOADS</span>
-        <span>REVENUE</span>
-        <span>RATING</span>
-        <span>ACTIONS</span>
+
+    <div className="flex gap-[23px]">
+      <div
+        className="px-[18px] py-[18px] min-h-[351px] min-w-[675px] rounded-[11px] border border-[#E5E7EC] bg-[#FFFFFF] flex flex-col justify-center gap-[63px] shadow-[0px 2px 15px 0px #00000008];
+"
+        title="Revenue Overview"
+      >
+        <RevenueOverview />
       </div>
-      {[
-        "The Digital Revolution",
-        "Modern Education",
-        "Science Simplified",
-        "Creative Writing Guide",
-      ].map((book) => (
-        <div
-          key={book}
-          className="grid grid-cols-[1.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr] items-center border-b border-[#F0F0F0] py-2 text-[12px]"
-        >
-          <span className="font-medium text-[#1D2232]">{book}</span>
-          <span>2,847</span>
-          <span>456</span>
-          <span>$2,475</span>
-          <span>4.8</span>
-          <button type="button" className="text-[#667085]">
-            View Details
-          </button>
-        </div>
-      ))}
-    </CardPanel>
+      <ReaderEngagement />
+    </div>
+
+<div className="rounded-[12px] border border-[#E5E7EC] bg-[#FFFFFF] flex flex-col justify-center shadow-[0px 3px 30px 0px #0000000]">
+  <div className="h-[85px] border-b border-[#E5E7EB] flex items-center justify-between pl-[20px] pr-[40px]">
+    <p className="text-[15px] font-[600] text-[#111111]">
+      Book Performance
+    </p>
+    <div>
+      <p className="text-[13px] font-[400] text-[#7C8091]">filters</p>
+    </div>
+  </div>
+  <div className="h-[48px] items-center px-[20px] bg-[#F9FAFB] grid grid-cols-[1.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr] border-b border-[#E5E7EB] text-[11px] font-[600] text-[#4B5563]">
+    <span>BOOK</span>
+    <span>VIEWS</span>
+    <span>DOWNLOADS</span>
+    <span>REVENUE</span>
+    <span>RATING</span>
+    <span>TREND</span>
+    <span>ACTIONS</span>
+  </div>
+  {[
+    { title: "The Digital Revolution", views: "2,847", downloads: "456", revenue: "$1,247.5", rating: "4.8", trend: "+12%", trendColor: "text-green-500", img: "https://picsum.photos/id/1015/40/50" },
+    { title: "Modern Education", views: "1,923", downloads: "312", revenue: "$856.3", rating: "4.6", trend: "+12%", trendColor: "text-green-500", img: "https://picsum.photos/id/201/40/50" },
+    { title: "Science Simplified", views: "1,456", downloads: "234", revenue: "$642.8", rating: "4.7", trend: "0%", trendColor: "text-gray-500", img: "https://picsum.photos/id/301/40/50" },
+    { title: "Creative Writing Guide", views: "987", downloads: "156", revenue: "$428.4", rating: "4.5", trend: "-5%", trendColor: "text-red-500", img: "https://picsum.photos/id/401/40/50" },
+  ].map((book) => (
+    <div
+      key={book.title}
+      className="h-[97px] px-[20px] grid grid-cols-[1.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr_0.8fr] items-center border-b border-[#E5E7EB]"
+    >
+      <div className="flex items-center gap-3">
+        <img src={book.img} alt={book.title} className="h-[64px] w-[48px] object-cover rounded-[4px]" />
+        <span className="text-[15px] font-[600] text-[#111111]">{book.title}</span>
+      </div>
+      <span className="text-[14px] font-[400] text-[#111111]">{book.views}</span>
+      <span className="text-[14px] font-[400] text-[#111111]">{book.downloads}</span>
+      <span className="text-[14px] font-[600] text-[#111111]">{book.revenue}</span>
+      <span className="text-[14px] font-[600] text-[#111111]">{book.rating}</span>
+      <span className={`text-[14px] font-[600] ${book.trendColor}`}>{book.trend}</span>
+      <button
+        type="button"
+        className="cursor-pointer text-[13px] font-[600] text-[#7C8091]"
+      >
+        View Details
+      </button>
+    </div>
+  ))}
+</div>
 
     <div className="grid grid-cols-3 gap-3">
       <CardPanel title="Top Performing Books">
