@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import './music-library.css'
 import {
   IconBack,
@@ -22,7 +23,9 @@ const img = (src, alt) => <img src={src} alt={alt} className='ml-image' />
 const badge = 'rounded-full bg-[#F8E6CB] px-2 py-0.5 text-[10px] text-[#E78E09]'
 
 const MusicLibraryApp = () => {
-  const [leftNav, setLeftNav] = useState('library')
+  const { tab } = useParams()
+  const navigate = useNavigate()
+  const leftNav = tab || 'library'
   const [quick, setQuick] = useState('none')
   const [hubTab, setHubTab] = useState('monetize')
   const [sub, setSub] = useState('featured')
@@ -44,7 +47,7 @@ const MusicLibraryApp = () => {
       <div className='ml-shell'>
         <Sidebar
           leftNav={leftNav}
-          setLeftNav={setLeftNav}
+          onNavChange={(key) => { setQuick('none'); navigate(`/music-library/${key}`); }}
           quick={quick}
           setQuick={setQuick}
           setHubTab={setHubTab}
@@ -118,7 +121,7 @@ const MusicLibraryApp = () => {
   )
 }
 
-const Sidebar = ({ leftNav, setLeftNav, quick, setQuick, setHubTab }) => (
+const Sidebar = ({ leftNav, onNavChange, quick, setQuick, setHubTab }) => (
   <aside className='ml-card p-4'>
     <h2 className='ml-sidebar-title'>Seekheed Music</h2>
     <div className='mt-3 space-y-1'>
@@ -130,10 +133,7 @@ const Sidebar = ({ leftNav, setLeftNav, quick, setQuick, setHubTab }) => (
         <button
           key={key}
           className={`ml-side-link ${leftNav === key && quick === 'none' ? 'active' : ''}`}
-          onClick={() => {
-            setQuick('none')
-            setLeftNav(key)
-          }}
+          onClick={() => onNavChange(key)}
           type='button'
         >
           <I className='h-3.5 w-3.5' />

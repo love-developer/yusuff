@@ -24,8 +24,10 @@ const App = () => {
       <Routes>
         <Route element={<MainLayout />}>
         <Route path='/' element={<Home />} />
-        <Route path='/book-maker' element={<BookMaker />} />
-        <Route path='/music-library' element={<MusicLibraryPage />} />
+        <Route path='/book-maker' element={<Navigate to='/book-maker/books' replace />} />
+        <Route path='/book-maker/:tab' element={<BookMaker />} />
+        <Route path='/music-library' element={<Navigate to='/music-library/library' replace />} />
+        <Route path='/music-library/:tab' element={<MusicLibraryPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/enrollment-submitted' element={<EnrollmentSubmitted />} />
         <Route path='/teacher-application-submitted' element={<TeacherEnrollmentSubmitted />} />

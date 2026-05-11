@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { navItems } from '../components/book-maker/data'
 import { AppShell, Sidebar } from '../components/book-maker/Shared'
 import { CreateBookModal, InviteMemberModal, UploadGuidelinesModal } from '../components/book-maker/Modals'
@@ -10,7 +11,9 @@ import PublishingView from '../components/book-maker/views/PublishingView'
 import AnalyticsView from '../components/book-maker/views/AnalyticsView'
 
 const BookMaker = () => {
-  const [active, setActive] = useState('books')
+  const { tab } = useParams()
+  const navigate = useNavigate()
+  const active = tab || 'books'
   const [createStep, setCreateStep] = useState(1)
   const [createOpen, setCreateOpen] = useState(false)
   const [guidelinesOpen, setGuidelinesOpen] = useState(false)
@@ -21,7 +24,7 @@ const BookMaker = () => {
 
   return (
     <AppShell>
-      <Sidebar items={navItems} active={active} onChange={setActive} />
+      <Sidebar items={navItems} active={active} onChange={(key) => navigate(`/book-maker/${key}`)} />
 
       <main className='pl-2'>
         {active === 'books' && <MyBooksView onOpenCreateBook={() => setCreateOpen(true)} />}
